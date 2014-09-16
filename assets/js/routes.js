@@ -1,22 +1,35 @@
 'use strict';
 
 /**
- * Route configuration for the Dashboard module.
+ * Route configuration for the CMS module.
  */
-angular.module('CMS').config(['$stateProvider', '$urlRouterProvider', 
+angular.module('CMS').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
     // For unmatched routes
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/dashboard');
 
     // Application routes
     $stateProvider
-        .state('index', {
+		.state('login', {
+			url: '/login',
+            templateUrl: 'assets/shared/pages/login.html',
+			requireLogin: false
+		})
+        .state('main', {
             url: '/',
-            templateUrl: 'dashboard.html'
+            templateUrl: 'assets/pages/main.html',
+			requireLogin: true
+
         })
-        .state('tables', {
-            url: '/tables', 
-            templateUrl: 'tables.html'
+		.state('main.dashboard', {
+            url: 'dashboard', 
+            templateUrl: 'assets/pages/dashboard.html',
+			requireLogin: true
+        })
+        .state('main.tables', {
+            url: 'tables', 
+            templateUrl: 'assets/pages/table.html',
+			requireLogin: true
         });
 }]);
