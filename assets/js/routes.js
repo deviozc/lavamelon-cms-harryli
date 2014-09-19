@@ -14,6 +14,7 @@ angular.module('CMS').config(['$stateProvider', '$urlRouterProvider',
 		.state('login', {
 			url: '/login',
             templateUrl: 'assets/shared/pages/login.html',
+			controller: 'LoginCtrl',
 			requireLogin: false
 		})
         .state('main', {
@@ -25,7 +26,7 @@ angular.module('CMS').config(['$stateProvider', '$urlRouterProvider',
 		.state('main.dashboard', {
             url: 'dashboard', 
             templateUrl: 'assets/pages/dashboard.html',
-			requireLogin: false
+			requireLogin: true
         })
         .state('main.tables', {
             url: 'tables', 
