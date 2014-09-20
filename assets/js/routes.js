@@ -11,12 +11,8 @@ angular.module('CMS').config(['$stateProvider', '$urlRouterProvider',
 
     // Application routes
     $stateProvider
-		.state('login', {
-			url: '/login',
-            templateUrl: 'assets/shared/pages/login.html',
-			controller: 'LoginCtrl',
-			requireLogin: false
-		})
+		
+		
         .state('main', {
             url: '/',
             templateUrl: 'assets/pages/main.html',
