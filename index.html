@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="CMS">
+<html lang="en" ng-app="harryliCMS">
 <head>
 	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +21,9 @@
   <script type="text/javascript" src="assets/shared/js/libs/angular-animate.min.js"></script>
   <script type="text/javascript" src="assets/shared/js/libs/angular-resource.min.js"></script>
   <script type="text/javascript" src="assets/shared/js/libs/ui-bootstrap-tpls.min.js"></script>
+  <script type="text/javascript" src="assets/shared/js/libs/textAngular-sanitize.js"></script>
+  <script type="text/javascript" src="assets/shared/js/libs/textAngular.min.js"></script>
+  <script type="text/javascript" src="assets/shared/js/libs/toaster.js"></script>
   <!--End of script Libs-->
 
 
@@ -29,21 +32,29 @@
 
 </head>
 <body ng-controller="MasterCtrl">
-  
+  <toaster-container toaster-options="{'position-class': 'toast-top-right'}"></toaster-container>
 
         <section ui-view></section>
       
 
   <script type="text/javascript" src="assets/shared/js/modules/lbServices.js"></script> 
+    
+  
+    
+    
   <script type="text/javascript" src="assets/shared/js/modules/cms/module.js"></script>
   <script type="text/javascript" src="assets/shared/js/modules/cms/services/shared-cms-constants.js"></script>
   <script type="text/javascript" src="assets/shared/js/modules/cms/services/auth-service.js"></script>
-  <script type="text/javascript" src="assets/js/routes.js"></script>
   <script type="text/javascript" src="assets/shared/js/modules/cms/controllers/master-ctrl.js"></script>
   <script type="text/javascript" src="assets/shared/js/modules/cms/controllers/alerts-ctrl.js"></script>
   <script type="text/javascript" src="assets/shared/js/modules/cms/controllers/login-ctrl.js"></script>
   <script type="text/javascript" src="assets/shared/js/modules/cms/controllers/access-ctrl.js"></script>
+  <script type="text/javascript" src="assets/shared/js/modules/cms/controllers/article-ctrl.js"></script>
   <script type="text/javascript" src="assets/shared/js/modules/cms/directives/loading.js"></script>   
   <script type="text/javascript" src="assets/shared/js/modules/cms/directives/header-bar.js"></script>
+    
+    
+  <script type="text/javascript" src="assets/js/harryli-cms-module.js"></script>
+  <script type="text/javascript" src="assets/js/services/harryli-cms-constants.js"></script>
 </body>
 </html>
