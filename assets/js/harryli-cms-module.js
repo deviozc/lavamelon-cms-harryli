@@ -23,14 +23,18 @@ angular.module('harryliCMS', ['ui.router', 'lbServices', 'CMS'])
 		.state('main.dashboard', {
             url: 'dashboard', 
             templateUrl: 'assets/pages/dashboard.html',
-			requireLogin: true
+			requireLogin: true,
+            data: {
+                title: 'Dashboard'  
+            },
         })
 		.state('main.news', {
 			url: 'news',
             templateUrl: 'assets/pages/news/overview.html',
             controller: 'ArticleListCtrl',
             data: {
-                articleFilter: 'news'  
+                articleFilter: 'news',
+                title: 'Property News'
             },
             requireLogin: true
 		})
@@ -40,7 +44,8 @@ angular.module('harryliCMS', ['ui.router', 'lbServices', 'CMS'])
             controller: 'ArticleCreateCtrl',
 			data: {
                 articleFilter: 'news',
-                parent: 'main.news'
+                parent: 'main.news',
+                title: 'Property News'
             },
             resolve: {
                 templates: ['harryliConstants', function(harryliConstants){
@@ -54,7 +59,8 @@ angular.module('harryliCMS', ['ui.router', 'lbServices', 'CMS'])
             templateUrl: 'assets/pages/news/update.html',
             controller: 'ArticleEditCtrl',
 			data: {
-                parent: 'main.news'
+                parent: 'main.news',
+                title: 'Property News'
             },
             resolve: {
                 articleToBeUpdated: ['$stateParams', 'Article', function($stateParams, Article){

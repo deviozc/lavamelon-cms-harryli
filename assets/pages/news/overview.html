@@ -4,7 +4,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading overflow-hidden-wrapper">
                         <h3 class="panel-title pull-left">News overview</h3>
-                        <a class="btn btn-primary pull-right btn-xs" ui-sref="main.newsAdd">Add news</a>
+                        <a class="btn btn-primary pull-right btn-xs" ui-sref="main.newsAdd"><i class="fa fa-plus"></i> Add news</a>
                     </div>
                     <div class="panel-body">
                         <rd-loading ng-hide="doneLoading"></rd-loading>
@@ -18,8 +18,8 @@
                               <p ng-if="!!article.fr">中文标题：{{article.fr.title}}</p>
                               </div>
                               <div class="btn-group pull-right ">
-                                  <a ui-sref="main.newsUpdate({id: article.id})" class="btn btn-primary btn-sm">Edit</a>
-                                  <a class="btn btn-danger btn-sm" ng-click="delete(article)">Delete</a>
+                                  <a ui-sref="main.newsUpdate({id: article.id})" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                  <a class="btn btn-danger btn-sm" ng-click="delete(article)"><i class="fa fa-remove"></i> Delete</a>
                               </div>
                             </li>
                         </ul>
