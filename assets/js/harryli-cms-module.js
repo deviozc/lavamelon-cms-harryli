@@ -3,7 +3,7 @@
 /**
  * Route configuration for the CMS module.
  */
-angular.module('harryliCMS', ['ui.router', 'lbServices', 'CMS'])
+angular.module('harryliCMS', ['ui.router', 'CMS'])
 .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
