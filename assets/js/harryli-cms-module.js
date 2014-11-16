@@ -4,6 +4,10 @@
  * Route configuration for the CMS module.
  */
 angular.module('harryliCMS', ['ui.router', 'CMS'])
+.run(['$rootScope', function($rootScope){
+    $rootScope.domain = 'harryli.com';
+    $rootScope.imagePath = '//localhost:1337/';
+}])
 .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
