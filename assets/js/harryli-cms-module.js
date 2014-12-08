@@ -7,6 +7,7 @@ angular.module('harryliCMS', ['ui.router', 'CMS'])
 .run(['$rootScope', function($rootScope){
     $rootScope.domain = 'harryli.com';
     $rootScope.imagePath = '//localhost:1337/';
+    $rootScope.agentId = 'V49814';
 }])
 .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
@@ -16,11 +17,11 @@ angular.module('harryliCMS', ['ui.router', 'CMS'])
 
     // Application routes
     $stateProvider
-		
-		
+			
         .state('main', {
             url: '/',
             templateUrl: 'assets/pages/main.html',
+            abstract: true,
 			requireLogin: true
 
         })
@@ -32,6 +33,40 @@ angular.module('harryliCMS', ['ui.router', 'CMS'])
                 title: 'Dashboard'  
             },
         })
+        .state('main.property', {
+			url: 'property',
+            templateUrl: 'assets/shared/pages/property/overview.html',
+            controller: 'PropertyListCtrl',
+            data: {
+                title: 'Property Listing'
+            },
+            requireLogin: true
+		})
+        .state('main.propertyAdd', {
+			url: 'property/add',
+            templateUrl: 'assets/shared/pages/property/add.html',
+            controller: 'PropertyCreateCtrl',
+            data: {
+                title: 'Property Listing'
+            },
+            requireLogin: true
+		})
+        .state('main.propertyUpdate', {
+			url: 'property/update/:id',
+            templateUrl: 'assets/shared/pages/property/update.html',
+            controller: 'PropertyEditCtrl',
+			data: {
+                parent: 'main.property',
+                title: 'Property Listing'
+            },
+            resolve: {
+                propertyToBeUpdated: ['$stateParams', 'Property', function($stateParams, Property){
+                    var propertyId = $stateParams.id;
+                    return Property.get({Id: propertyId});
+                }]
+            },
+            requireLogin: true
+		})
 		.state('main.news', {
 			url: 'news',
             templateUrl: 'assets/pages/news/overview.html',
@@ -69,7 +104,7 @@ angular.module('harryliCMS', ['ui.router', 'CMS'])
             resolve: {
                 articleToBeUpdated: ['$stateParams', 'Article', function($stateParams, Article){
                     var articleId = $stateParams.id;
-                    return Article.get({id: articleId});
+                    return Article.get({Id: articleId});
                 }],
                 templates: ['harryliConstants', function(harryliConstants){
                     return harryliConstants.NEWS_TEMPLATES;
