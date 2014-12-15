@@ -47,6 +47,7 @@ angular.module('harryliCMS', ['ui.router', 'CMS'])
             templateUrl: 'assets/shared/pages/property/add.html',
             controller: 'PropertyCreateCtrl',
             data: {
+                parent: 'main.property',
                 title: 'Property Listing'
             },
             requireLogin: true
